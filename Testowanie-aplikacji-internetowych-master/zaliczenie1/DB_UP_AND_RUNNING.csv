@@ -1,5 +1,0 @@
-timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
-1511215517763,72,JDBC Request test ,200,OK,Database 2-1,text,true,,4,0,1,2,72,0,71
-1511215517845,17,JDBC Request variables,200,OK,Database 2-1,text,true,,148,0,1,2,17,0,0
-1511215517863,2,JDBC Request insert,200,OK,Database 2-1,text,true,,9,0,1,2,1,0,0
-1511215517865,11,JDBC Request update,200,OK,Database 2-1,text,true,,9,0,1,2,11,0,0
