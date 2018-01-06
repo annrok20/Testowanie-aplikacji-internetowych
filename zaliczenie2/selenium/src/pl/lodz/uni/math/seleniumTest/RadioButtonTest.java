@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import junit.framework.Assert;
 
-public class CheckBoxTest {
+public class RadioButtonTest {
 @Before
 public void setUp()
 {
@@ -18,12 +18,13 @@ public void setUp()
 public void testPage() throws InterruptedException
 {
 	WebDriver driver = new FirefoxDriver();
-	driver.get("http://www.seleniumeasy.com/test/basic-checkbox-demo.html");
-	CheckBoxPage o = new CheckBoxPage(driver);
-	o.clickOnCheckBox();
+	driver.get("http://www.seleniumeasy.com/test/basic-radiobutton-demo.html");
+	RadioButtonPage o = new RadioButtonPage(driver);
+	o.clickOnRadioButton();
+	Thread.sleep(1000);
+	o.clickOnCheckValue();
 	Thread.sleep(5000);
-	o.clickOnCheckButton();
-	Assert.assertTrue(driver.getPageSource().contains("Success - Check box is checked"));;
+	Assert.assertTrue(driver.getPageSource().contains("Radio button 'Male' is checked"));;
 	driver.quit();
 }
 @After
