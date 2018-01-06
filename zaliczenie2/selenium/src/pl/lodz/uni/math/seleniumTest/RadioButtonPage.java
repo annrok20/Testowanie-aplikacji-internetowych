@@ -7,7 +7,9 @@ public class RadioButtonPage {
 	WebDriver driver;
 	By radioButton=By.name("optradio");
 	By getCheckValue=By.id("buttoncheck");
-	//By unCheckAll=By.xpath("//input[@value='Uncheck All']");	
+	By radioButtonGender=By.name("gender");
+	By ageGroup=By.name("ageGroup");
+	By getValues= By.xpath("//button[@onclick='getValues();']");
 
 	public RadioButtonPage(WebDriver driver)
 	{
@@ -24,4 +26,17 @@ public class RadioButtonPage {
 		driver.findElement(getCheckValue).click();
 
 	} 
+	public void clickOnRadioButtonGender()
+	{
+		driver.findElement(radioButtonGender).click();
+	}
+	public void clickOnAgeGroup()
+	{
+		driver.findElement(ageGroup).click();
+	}
+	public void clickOnGetValues()
+	{
+		driver.findElement(getValues).click();
+	}
+
 }

@@ -23,8 +23,18 @@ public void testPage() throws InterruptedException
 	o.clickOnRadioButton();
 	Thread.sleep(1000);
 	o.clickOnCheckValue();
+	Assert.assertTrue(driver.getPageSource().contains("Radio button 'Male' is checked"));
+	Thread.sleep(1000);
+	o.clickOnRadioButtonGender();
+	Thread.sleep(1000);
+	o.clickOnAgeGroup();
+	Thread.sleep(1000);
+	o.clickOnGetValues();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("Sex : Male"));
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("Age group: 0 - 5"));
 	Thread.sleep(5000);
-	Assert.assertTrue(driver.getPageSource().contains("Radio button 'Male' is checked"));;
 	driver.quit();
 }
 @After
