@@ -9,8 +9,8 @@ public class InputPage {
 	By input=By.id("user-message");
 	By showMessage=By.xpath("//button[@onclick='showInput();']");
 	By firstDigit=By.xpath("//input[@id='sum1']");
-	By secondDigit=By.xpath("//input[@id='sum2']");
-	By getTotal=By.xpath("//button[@onclick='return total();']");
+    By secondDigit = By.xpath("//input[@id='sum2']");
+	By getTotal=By.xpath("//button[@onclick='return total()']");
 	
 	public InputPage(WebDriver driver){
 		this.driver=driver;
@@ -18,8 +18,6 @@ public class InputPage {
 	
 	public void enterText(String text)
 	{
-		driver.findElement(input).click();
-		driver.findElement(input).clear();
 		driver.findElement(input).sendKeys(text);
 		driver.findElement(showMessage).click();
 	}
