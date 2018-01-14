@@ -4,6 +4,7 @@ import org.jbehave.core.annotations.Given;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -108,7 +109,7 @@ public void testAjaxFormPage() throws InterruptedException
 	Thread.sleep(5000);
 	driver.quit();
 }
-*/
+
 @Test 
 public void testInputFormPage() throws InterruptedException
 {
@@ -139,6 +140,8 @@ public void testInputFormPage() throws InterruptedException
 	object.sendProject("Testowanie, Selenium, Input Form ");
 	Thread.sleep(1000);
 	object.clickSubmit();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("Success "));
 	Thread.sleep(5000);
 	driver.quit();
 }
@@ -153,12 +156,71 @@ public void testDownloadPage() throws InterruptedException
 	Thread.sleep(1000);
 	object.clickDownloadButton();
 	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("File Download"));
+	Thread.sleep(1000);
 	object.waitOnClose();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("Click below button to start download."));
 	Thread.sleep(5000);
 	driver.quit();
 }
 
+@Test
+public void testAlertBoxPage() throws InterruptedException
+{
+	WebDriver driver = new FirefoxDriver();
+	driver.get("http://www.seleniumeasy.com/test/javascript-alert-box-demo.html");
+	AlertBoxPage object = new AlertBoxPage(driver);
+	Thread.sleep(1000);
+	object.clickOnMyAlert();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("I am an alert box!"));
+	object.clickOK();
+	Thread.sleep(1000);
+	object.clickOnMyConfirm();
+	Thread.sleep(1000);
+	object.clickOK();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("You pressed OK!"));
+	Thread.sleep(1000);
+	object.clickOnMyPrompt();
+	Thread.sleep(1000);
+	object.sendName("Ania");
+	Thread.sleep(1000);
+	object.clickOK();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("You have entered 'Ania' !"));
+	Thread.sleep(5000);
+	driver.quit();
+}
 
+@Test
+public void testDataLoading() throws InterruptedException
+{
+	WebDriver driver = new FirefoxDriver();
+	driver.get("http://www.seleniumeasy.com/test/dynamic-data-loading-demo.html");
+	DataLoading object = new DataLoading(driver);
+	Thread.sleep(1000);
+	object.clickGetUser();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("loading..."));
+	Thread.sleep(5000);
+	driver.quit();
+}
+*/
+@Test
+public void testDataListFilterPage() throws InterruptedException
+{
+	WebDriver driver = new FirefoxDriver();
+	driver.get("http://www.seleniumeasy.com/test/data-list-filter-demo.html");
+	DataListFilterPage object = new DataListFilterPage(driver);
+	Thread.sleep(1000);
+	object.sendText("Brenda");
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("Name: Brenda Tree"));
+	Thread.sleep(5000);
+	driver.quit();
+} 
 @After
 public void Null ()
 {
