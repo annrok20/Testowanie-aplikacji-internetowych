@@ -1,5 +1,6 @@
 package pl.lodz.uni.math.seleniumTest;
 
+import org.jbehave.core.annotations.Given;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -90,6 +91,23 @@ public void testSelectDropdownPage() throws InterruptedException
 	Thread.sleep(5000);
 	driver.quit();
 }
+@Test 
+public void testAjaxFormPage() throws InterruptedException
+{
+	WebDriver driver = new FirefoxDriver();
+	driver.get("http://www.seleniumeasy.com/test/ajax-form-submit-demo.html");
+	AjaxFormPage object = new AjaxFormPage(driver);
+	Thread.sleep(1000);
+	object.sendName("Ania");
+	Thread.sleep(1000);
+	object.sendDescription("Testowanie, Selenium, Input Form");
+	Thread.sleep(1000);
+	object.clickSubmit();
+	Thread.sleep(1000);
+	Assert.assertTrue(driver.getPageSource().contains("Form submited Successfully!"));
+	Thread.sleep(5000);
+	driver.quit();
+}
 */
 @Test 
 public void testInputFormPage() throws InterruptedException
@@ -104,20 +122,43 @@ public void testInputFormPage() throws InterruptedException
 	Thread.sleep(1000);
 	object.sendEmail("arokicka@wp.pl");
 	Thread.sleep(1000);
-	object.sendPhone("123-456-789");
+	object.sendPhone("(123)456-789-6");
 	Thread.sleep(1000);
 	object.sendAddress("ul Pomorska 123");
 	Thread.sleep(1000);
 	object.sendCity("Lodz");
 	Thread.sleep(1000);
-	object.sendZipCode("90-036");
+	object.chooseState("Alabama");
 	Thread.sleep(1000);
-	//Assert.assertTrue(driver.getPageSource().contains("Friday"));
-	//Assert.assertTrue(driver.getPageSource().contains("Ohio"));
-	//Assert.assertTrue(driver.getPageSource().contains("Texas"));
+	object.sendZipCode("90036");
+	Thread.sleep(1000);
+	object.sendWebsite("arokicka.math.uni.lodz.pl");
+	Thread.sleep(1000);
+	object.clickHosting();
+	Thread.sleep(1000);
+	object.sendProject("Testowanie, Selenium, Input Form ");
+	Thread.sleep(1000);
+	object.clickSubmit();
 	Thread.sleep(5000);
 	driver.quit();
 }
+
+
+@Test
+public void testDownloadPage() throws InterruptedException
+{
+	WebDriver driver = new FirefoxDriver();
+	driver.get("http://www.seleniumeasy.com/test/jquery-download-progress-bar-demo.html");
+	DownloadPage object = new DownloadPage(driver);
+	Thread.sleep(1000);
+	object.clickDownloadButton();
+	Thread.sleep(1000);
+	object.waitOnClose();
+	Thread.sleep(5000);
+	driver.quit();
+}
+
+
 @After
 public void Null ()
 {

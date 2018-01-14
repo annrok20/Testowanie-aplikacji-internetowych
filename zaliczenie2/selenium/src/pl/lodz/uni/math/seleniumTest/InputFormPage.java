@@ -1,5 +1,6 @@
 package pl.lodz.uni.math.seleniumTest;
 
+import org.jbehave.core.annotations.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -29,11 +30,7 @@ public class InputFormPage {
 	public void contact(String fName, String lname, String Email, String Phone, String Address, String City, String State, String Zip, String Web, String Description) 
 	{
 
-		driver.findElement(state).click(); //----------
-		driver.findElement(state).sendKeys(State);
-		driver.findElement(state).click(); //----------
-		driver.findElement(zipcode).sendKeys(Zip);
-		driver.findElement(website).sendKeys(Web);
+//----------
 		driver.findElement(hosting).click(); //----------
 		driver.findElement(projectDescription).click(); 
 		driver.findElement(projectDescription).sendKeys(Description);
@@ -49,30 +46,49 @@ public class InputFormPage {
 		driver.findElement(lastName).sendKeys(lName);
 	}
 	
-	public void sendEmail(String Email) 
+	public void sendEmail(String sEmail) 
 	{
-		driver.findElement(email).sendKeys(Email);
+		driver.findElement(email).sendKeys(sEmail);
 	}
 	
-	public void sendPhone(String Phone) 
+	public void sendPhone(String sPhone) 
 	{
-		driver.findElement(phone).sendKeys(Phone);
+		driver.findElement(phone).sendKeys(sPhone);
 	}
-	public void sendAddress(String Address) 
+	//@Given ("lalallalallallalala")
+	public void sendAddress(String sAddress) 
 	{
-		driver.findElement(address).sendKeys(Address);
+		driver.findElement(address).sendKeys(sAddress);
 	}
-	public void sendCity(String City) 
+	public void sendCity(String sCity) 
 	{
-		driver.findElement(city).sendKeys(City);
+		driver.findElement(city).sendKeys(sCity);
 	}
-	public void sendZipCode(String ZipCode) 
+	public void sendZipCode(String sZipCode) 
 	{
-		driver.findElement(zipcode).sendKeys(ZipCode);
+		driver.findElement(zipcode).sendKeys(sZipCode);
 	}
-	
-	public void submitButton()
+	public void sendWebsite(String sWebsite) 
+	{
+		driver.findElement(website).sendKeys(sWebsite);
+	}
+	public void chooseState(String sState)
+	{
+		driver.findElement(state).click(); 
+		driver.findElement(state).sendKeys(sState);
+		driver.findElement(state).click(); 
+	}
+	public void sendProject(String project) 
+	{
+		driver.findElement(projectDescription).sendKeys(project);
+	}
+	public void clickHosting() 
+	{
+		driver.findElement(hosting).click();
+	}
+	public void clickSubmit()
 	{
 		driver.findElement(send).click();
 	}
+
 }
