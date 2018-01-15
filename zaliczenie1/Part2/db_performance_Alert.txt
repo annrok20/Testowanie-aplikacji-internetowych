@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1516041642666,21,JDBC Request Insert,200,OK,Grupa wątków 1-1,text,true, 1 ,9,0,1,1,21,0,0
+1516041642688,1,JDBC Request Update ,200,OK,Grupa wątków 1-1,text,true, 1 ,9,0,1,1,1,0,1
+1516041642691,0,JDBC Request Update2,200,OK,Grupa wątków 1-1,text,true, 1 ,9,0,1,1,0,0,0
+1516041642694,2,JDBC Request delete,200,OK,Grupa wątków 1-1,text,true, 1 ,9,0,1,1,1,0,0
+1516041642698,1,JDBC Request Select,200,OK,Grupa wątków 1-1,text,true, 1 ,23,0,1,1,1,0,0

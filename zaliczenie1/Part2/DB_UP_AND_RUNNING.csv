@@ -1,0 +1,2 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1516041642518,143,JDBC Request test connection,200,OK,Grupa wątków 1-1,text,true, DB_UP_AND_RUNNING ,4,0,1,1,143,0,142
